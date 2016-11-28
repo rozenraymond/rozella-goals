@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyText
+  notes: MyText
+  deadline: 2016-11-26
+  reminder: 2016-11-26 14:37:52
+  token: 1
+
+two:
+  name: MyText
+  notes: MyText
+  deadline: 2016-11-26
+  reminder: 2016-11-26 14:37:52
+  token: 1

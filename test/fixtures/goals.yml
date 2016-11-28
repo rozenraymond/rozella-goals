@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyText
+  deadline: 2016-11-26
+  categories: MyText
+  reward: MyText
+  jar: 1
+  image: MyText
+
+two:
+  name: MyText
+  deadline: 2016-11-26
+  categories: MyText
+  reward: MyText
+  jar: 1
+  image: MyText

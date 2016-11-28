@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rozella</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<h1>Rozella</h1>
+
+<nav>
+  <%= link_to "Home", root_path %> |
+  <%= link_to "All Users", users_path %> |
+  <%= link_to "All Goals", goals_path %> |
+
+  <% unless @current_user.present? %>
+    <%= link_to "Sign Up", new_user_path %> |
+    <%= link_to "Login", login_path %> |
+  <% else %>
+    <%= link_to "Edit Profile", edit_user_path %> |
+    <%= link_to "Log Out #{@current_user.email}", login_path, :method => :delete %> |
+  <%end %>
+
+</nav>
+
+
+<div class="container">
+<%= yield %>
+</div>
+
+
+</body>
+</html>
