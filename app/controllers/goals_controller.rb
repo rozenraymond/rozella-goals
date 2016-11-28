@@ -29,4 +29,10 @@ class GoalsController < ApplicationController
 
     redirect_to root_path()
   end
+
+  private
+  def user_params
+    params.require(:goal).permit(:name, :categories)
+  end
+
 end
