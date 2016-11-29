@@ -3,11 +3,20 @@
 <% unless @current_user.present? %>
   <p>Sign in to view your goals</p>
 
-  <% else %>
+<% else %>
 
   <% @goals.each do |g| %>
     <ul>
       <li> <%= link_to(g.name, "/goals/#{g.id}") %> </li>
     </ul>
+  <% end %>
+
+  <%= month_calendar(events: @goals, attribute: :deadline) do |date, goals| %>
+    <%= date.day %>
+    <% goals.each do |goal| %>
+      <div>
+        <%= link_to(goal.name, goal_path(goal)) %>
+      </div>
+    <% end %>
   <% end %>
 <%end %>

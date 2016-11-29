@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem "simple_calendar", "~> 2.0"
 gem 'materialize-sass'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'

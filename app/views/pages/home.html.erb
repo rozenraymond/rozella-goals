@@ -1,1 +1,57 @@
-<h1>#GOALS</h1>
+<div class="wrapper-quote">
+    <p class="quotes">“Goals determine what you’re going to be.”</p>
+    <p class="quotes2">~ Julius Erving ~</p>
+
+
+<% unless @current_user.present? %>
+<div class="wrapper">
+    <button class="button"><%= link_to "Sign Up & Create a goal now!", new_user_path() %>
+    </button>
+</div>
+<% else %>
+<div class="wrapper">
+    <button class="button"><%= link_to "Create Goal", new_goal_path() %>
+    </button>
+</div>
+<% end %>
+
+</div>
+
+<div class="intro">
+    <div class="icon description"><%= image_tag "icon/create_goal.svg" %></div>
+    <h4 class="description goal">Create your goal</h4>
+    <ul class="description_details">
+        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita autem, illum itaque! Velit totam suscipit blanditiis, veritatis iusto cum pariatur dicta tempore, similique, commodi rerum impedit eius consequuntur minima optio.</li>
+    </ul>
+
+
+    <div class="icon description"><%= image_tag "icon/create_goal.svg" %></div>
+    <h4 class="description goal">Set a deadline</h4>
+    <ul class="description_details">
+        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita autem, illum itaque! Velit totam suscipit blanditiis, veritatis iusto cum pariatur dicta tempore, similique, commodi rerum impedit eius consequuntur minima optio.</li>
+    </ul>
+
+    <div class="icon description"><%= image_tag "icon/create_goal.svg" %></div>
+    <h4 class="description goal">Break it down</h4>
+    <ul class="description_details">
+        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita autem, illum itaque! Velit totam suscipit blanditiis, veritatis iusto cum pariatur dicta tempore, similique, commodi rerum impedit eius consequuntur minima optio.</li>
+    </ul>
+
+    <div class="icon description"><%= image_tag "icon/create_goal.svg" %></div>
+    <h4 class="description goal">Reward yourself</h4>
+    <ul class="description_details">
+        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita autem, illum itaque! Velit totam suscipit blanditiis, veritatis iusto cum pariatur dicta tempore, similique, commodi rerum impedit eius consequuntur minima optio.</li>
+    </ul>
+</div>
+
+<% unless @current_user.present? %>
+<div class="wrapper">
+    <button class="button"><%= link_to "Sign Up & Create a goal now!", new_user_path() %>
+    </button>
+</div>
+<% else %>
+<div class="wrapper">
+    <button class="button"><%= link_to "Create Goal", new_goal_path() %>
+    </button>
+</div>
+<% end %>

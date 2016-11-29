@@ -6,24 +6,27 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-
-<h1>Rozella</h1>
+<body class="<%= params[:controller] %> <%= params[:action] %>">
 
 <nav>
-  <%= link_to "Home", root_path %> |
-  <%= link_to "All Users", users_path %> |
+  <div>
+    <!-- <a href="#" class="brand-logo">Logo</a> -->
 
-  <% unless @current_user.present? %>
-    <%= link_to "Sign Up", new_user_path %> |
-    <%= link_to "Login", login_path %> |
-  <% else %>
-    <%= link_to "All Goals", goals_path %> |
-    <%= link_to "New Goal", new_goal_path %> |
-    <%= link_to "Edit Profile", edit_user_path %> |
-    <%= link_to "Log Out #{@current_user.email}", login_path, :method => :delete %> |
-  <%end %>
+    <li class="brand-logo"><%= link_to "Rozella", root_path %></li>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+    <li><%= link_to "All Users", users_path %> </li>
 
+    <% unless @current_user.present? %>
+      <li><%= link_to "Sign Up", new_user_path %> </li>
+      <li><%= link_to "Login", login_path %> </li>
+    <% else %>
+      <li><%= link_to "All Goals", goals_path %> </li>
+      <li><%= link_to "New Goal", new_goal_path %> </li>
+      <li><%= link_to "Edit Profile", edit_user_path %> </li>
+      <li><%= link_to "Log Out #{@current_user.email}", login_path, :method => :delete %> </li>
+    <%end %>
+    </ul>
+  </div>
 </nav>
 
 
