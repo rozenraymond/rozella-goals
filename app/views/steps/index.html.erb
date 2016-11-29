@@ -1,2 +1,7 @@
-<h1>Steps#index</h1>
-<p>Find me in app/views/steps/index.html.erb</p>
+<h3>All the Steps</h3>
+
+<% @steps.each do |s| %>
+  <ul>
+    <li><%= s.name %></li>
+  </ul>
+<% end %>

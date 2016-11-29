@@ -11,7 +11,9 @@ Rails.application.routes.draw do
   get "/users/edit" => 'users#edit', :as => 'edit_user'
   resources :users, :except => [:edit]
 
-  resources :goals, :steps
+  resources :goals do
+    resources :steps
+  end
 
 
 end

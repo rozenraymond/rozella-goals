@@ -1,0 +1,23 @@
+<%= form_for @goal do |g| %>
+  <p>
+    Goal: <%= g.text_field :name, :placeholder => "Goal", :required => true %>
+  </p>
+
+  <p>
+    Cateogory: <%= g.text_field :categories, :placeholder => "Cateogory", :required => true %>
+  </p>
+
+  <p>
+    Reward: <%= g.text_field :reward, :placeholder => "Reward" %>
+  </p>
+
+  <p>
+    Deadline: <%= g.date_field :deadline, :placeholder => "Deadline?" %>
+  </p>
+
+  <p>
+    Image: <%= g.text_field :image, :placeholder => "Image URL" %>
+  </p>
+
+<%= g.submit %>
+<% end %>

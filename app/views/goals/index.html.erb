@@ -1,7 +1,13 @@
 <h3>All Goals</h3>
 
-<% @goals.each do |g| %>
-  <ul>
-    <li><%= g.name %></li>
-  </ul>
+<% unless @current_user.present? %>
+  <p>Sign in to view your goals</p>
+
+  <% else %>
+
+  <% @goals.each do |g| %>
+    <ul>
+      <li> <%= link_to(g.name, "/goals/#{g.id}") %> </li>
+    </ul>
+  <% end %>
 <%end %>

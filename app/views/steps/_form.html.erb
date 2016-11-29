@@ -1,0 +1,16 @@
+<%= form_for [@goal, @step] do |s| %>
+  <p>
+    Step: <%= s.text_field :name, :placeholder => "Step", :required => true %>
+  </p>
+
+  <p>
+    Notes: <%= s.text_field :notes, :placeholder => "Any Notes?"%>
+  </p>
+
+  <p>
+    Deadline: <%= s.date_field :deadline, :placeholder => "Deadline?" %>
+  </p>
+
+
+<%= s.submit %>
+<% end %>

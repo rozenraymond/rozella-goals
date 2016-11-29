@@ -14,6 +14,7 @@ class SessionController < ApplicationController
 
     else
       flash[:error] = "The password or email was incorrect"
+      render :new
     end
 
   end
