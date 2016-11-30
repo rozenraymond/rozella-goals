@@ -1,13 +1,14 @@
-<h3>All Users</h3>
-
 <% if @current_user %>
   <h3>
     You are logged in as <%= @current_user.email %>
   </h3>
-<% end %>
-
+  
+<% else %>
+<h3>All Users</h3>
 <% @users.each do |u| %>
   <p>
     <%= link_to(u.name, user_path(u)) %>
   </p>
+<% end %>
+
 <% end %>
