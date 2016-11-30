@@ -8,12 +8,14 @@ Rails.application.routes.draw do
   # Home
   get '/home' => 'pages#home'
 
+  #Dashboard
+  get '/dashboards' => 'dashboards#index'
+
   get "/users/edit" => 'users#edit', :as => 'edit_user'
   resources :users, :except => [:edit]
 
   resources :goals do
     resources :steps
   end
-
 
 end

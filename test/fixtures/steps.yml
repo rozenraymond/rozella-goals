@@ -1,3 +1,18 @@
+# == Schema Information
+#
+# Table name: steps
+#
+#  id         :integer          not null, primary key
+#  name       :text
+#  notes      :text
+#  deadline   :date
+#  reminder   :datetime
+#  token      :integer
+#  goal_id    :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
