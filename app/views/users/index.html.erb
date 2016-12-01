@@ -4,13 +4,13 @@
   <div class="col s12 m7">
       <h5 class="header"><%= @current_user.name %> (You)</h5>
       <div class="card horizontal">
-        <div class="card-image">
+        <div class="card-image profile_picture">
             <%= cl_image_tag(@current_user.profile_picture, :class => "circle profile_picture") %>
         </div>
         <div class="card-stacked">
           <div class="card-content">
             <p><%= @current_user.email %></p>
-            
+            <p>Goals: <%= @current_user.goals.count %></p>
           </div>
           <div class="card-action">
             <%= link_to("Your profile", user_path(@current_user)) %>
@@ -20,15 +20,33 @@
     </div>
 
 
+<br>
+<br>
 
   <h5 class="other users">Other Users:</h5>
 
   <% @users.each do |u| %>
     <% if u.name != @current_user.name %>
     <%#= cl_image_tag(u.profile_picture) %>
-      <p>
-        <%= link_to(u.name, user_path(u)) %>
-      </p>
+
+    <div class="col s12 m7">
+        <h5 class="header"><%= u.name %></h5>
+        <div class="card horizontal">
+          <div class="card-image">
+              <%= cl_image_tag(u.profile_picture, :class => "circle profile_picture") %>
+          </div>
+          <div class="card-stacked">
+            <div class="card-content">
+              <p><%= u.email %></p>
+              <p>Goals: <%= u.goals.count %></p>
+            </div>
+            <div class="card-action">
+              <%= link_to("#{u.name}'s profile", user_path(u)) %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <br>
     <% end %>
   <% end %>
 
@@ -36,9 +54,24 @@
 
   <h3>All Users</h3>
   <% @users.each do |u| %>
-    <p>
-      <%= link_to(u.name, user_path(u)) %>
-    </p>
+  <div class="col s12 m7">
+      <h5 class="header"><%= u.name %></h5>
+      <div class="card horizontal">
+        <div class="card-image">
+            <%= cl_image_tag(u.profile_picture, :class => "circle profile_picture") %>
+        </div>
+        <div class="card-stacked">
+          <div class="card-content">
+            <p><%= u.email %></p>
+            <p>Goals: <%= u.goals.count %></p>
+          </div>
+          <!-- <div class="card-action">
+            <%#= link_to("#{u.name}'s profile", user_path(u)) %>
+          </div> -->
+        </div>
+      </div>
+    </div>
+
   <% end %>
 
 <% end %>
