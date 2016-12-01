@@ -1,43 +1,54 @@
 <h3>All Goals</h3>
 
 <% unless @current_user.present? %>
-  <p>Sign in to view your goals</p>
+<p>Sign in to view your goals</p>
 
 <% else %>
 
-<% @goals.each do |g| %>
-<div class="card">
-    <div class="card-image waves-effect waves-block waves-light">
-      <img class="activator" src="work.jpg">
-    </div>
-    <div class="card-content">
-      <span class="card-title activator grey-text text-darken-4"><%= g.name %><i class="material-icons right">more_vert</i></span>
-      <p><%= link_to("Edit Goal", "/goals/#{g.id}") %></p>
-    </div>
-    <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4"><%= g.name %><i class="material-icons right">close</i></span>
-      <%g.steps.each do |s| %>
-      <ul>
-        <li><%= s.name %></li>
-      </ul>
+<div class="row">
+  <% @goals.each do |g| %>
 
-      <% end %>
-    </div>
-  </div>
-<% end %>
+      <div class="col s12 m4">
+          <div class="card">
+              <div class="card-image waves-effect waves-block waves-light">
+                  <div class="activator"><%= image_tag "work.jpg"%></div>
+                  <!-- <img class="activator" src="work.jpg"> -->
+              </div>
+              <div class="card-content">
+                  <span class="card-title activator grey-text text-darken-4"><%= g.name %>
+                      <i class="material-icons right">more_vert</i>
+                  </span>
+                  <p><%= link_to("Edit Goal", "/goals/#{g.id}") %></p>
+              </div>
+              <div class="card-reveal">
+                  <span class="card-title grey-text text-darken-4"><%= g.name %>
+                      <i class="material-icons right">close</i>
+                  </span>
+                  <%g.steps.each do |s| %>
+                  <ul>
+                      <li><%= s.name %></li>
+                  </ul>
 
-  <%# @goals.each do |g| %>
-    <!-- <ul>
+                  <% end %>
+              </div>
+          </div>
+      </div>
+
+  <% end %>
+</div>
+
+<%# @goals.each do |g| %>
+<!-- <ul>
       <li> <%#= link_to(g.name, "/goals/#{g.id}") %> </li>
     </ul> -->
-  <%# end %>
+<%# end %>
 
-  <%= month_calendar(events: @goals, attribute: :deadline) do |date, goals| %>
-    <%= date.day %>
-    <% goals.each do |goal| %>
-      <div>
-        <%= link_to(goal.name, goal_path(goal)) %>
-      </div>
-    <% end %>
-  <% end %>
+<%= month_calendar(events: @goals, attribute: :deadline) do |date, goals| %>
+<%= date.day %>
+<% goals.each do |goal| %>
+<div>
+    <%= link_to(goal.name, goal_path(goal)) %>
+</div>
+<% end %>
+<% end %>
 <%end %>

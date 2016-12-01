@@ -1,5 +1,6 @@
 <h3><%= @goal.name %></h3>
 
+<h5>Reward: <%= @goal.reward %></h5>
 <ul>
   <% @goal_steps.each do |s| %>
       <li><%= s.name %> <%= link_to( "Delete Step", goal_step_path( :id => s, :goal_id => @goal.id ), :method => "delete" ) %></li>
@@ -13,8 +14,11 @@
 </p>
 <% end %>
 
+<br>
+<br>
+
 <div class="controls">
-  <button><%= link_to "Edit Goal", edit_goal_path(@goal) %> </button> |
+  <button><%= link_to "Edit Goal", edit_goal_path(@goal) %> </button>
   <button><%= link_to "Delete Goal", goal_path(@goal), :method => :delete, :data => {:confirm => "Are you sure?"} %></button>
 </div>
 

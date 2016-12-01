@@ -5,7 +5,7 @@
 
 <% unless @current_user.present? %>
 <div class="wrapper">
-    <button class="button"><%= link_to "Sign Up & Create a goal now!", new_user_path() %>
+    <button class="button"><span class="button-value"><%= link_to "Sign Up & Create a goal now!", new_user_path() %></span>
     </button>
 </div>
 <% else %>
@@ -46,12 +46,12 @@
 
 <% unless @current_user.present? %>
 <div class="wrapper">
-    <button class="button"><%= link_to "Sign Up & Create a goal now!", new_user_path() %>
+    <button class="button"><span class="button-value"><%= link_to "Sign Up & Create a goal now!", new_user_path() %></span>
     </button>
 </div>
 <% else %>
 <div class="wrapper">
-    <button class="button"><%= link_to "Create Goal", new_goal_path() %>
+    <button class="browser-default button"><span class="button-value"><%= link_to "Create Goal", new_goal_path() %></span>
     </button>
 </div>
 <% end %>
