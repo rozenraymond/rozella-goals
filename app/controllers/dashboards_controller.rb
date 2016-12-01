@@ -7,6 +7,9 @@ class DashboardsController < ApplicationController
     @following_ids = @following.pluck(:id)
     @all_goals = Goal.where(:user_id => @current_user.id)
 
+    @user_name = User.find_by :id => params[:user_id]
+
+
     @following.each do |followee|
       followee.goals.each do |goal|
         @all_goals << goal

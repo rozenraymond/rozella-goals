@@ -28,6 +28,7 @@ class GoalsController < ApplicationController
     @goal = Goal.find_by :id => params[:id]
   end
 
+
   def update
     goal = Goal.find_by :id => params[:id]
     goal.update goal_params

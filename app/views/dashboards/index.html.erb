@@ -1,24 +1,27 @@
-<% @all_goals.each do |goal| %>
-  <div class="row">
-   <div class="col s12 m8 offset-m2 l6 offset-l3">
-     <div class="card hoverable">
-       <div class="card-image dashboard-card">
-         <div><%= link_to goal.name, "/goals/#{goal.id}"%></div>
-         <div><%= goal.created_at.strftime("%-d %b %Y") %></div>
-       </div>
-     </div>
-   </div>
- </div>
-<% end %>
-
-
-
 <div>
     <div class="nav-wrapper">
-      <%= form_tag("/search", method: "GET") do %>
+        <%= form_tag("/search", method: "GET") do %>
         <div class="input-field">
-          <%= text_field_tag :search, "", :placeholder => "Search Categories", :required => true %>
+            <%= text_field_tag :search, "", :placeholder => "Search Categories" , :required => true %>
         </div>
-      <% end %>
+
+        <% end %>
+
     </div>
-  </div>
+</div>
+
+<% @all_goals.each do |goal| %>
+<div class="row">
+    <div class="col s12 m8 offset-m2 l6 offset-l3">
+        <div class="card hoverable">
+            <div class="card-image dashboard-card">
+                <div><%= link_to goal.name, "/goals/#{goal.id}"%></div>
+                <div class="created_at">created at:
+                    <%= goal.created_at.strftime("%-d %b %Y") %></div>
+                <div class="by_user">by:
+                    <%= goal.user.name %></div>
+            </div>
+        </div>
+    </div>
+</div>
+<% end %>

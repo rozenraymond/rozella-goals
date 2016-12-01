@@ -2,7 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
+nav {
+    background-color: #A18FE0;
+}
 
 body.pages.home {
   background-color: #FFEEE6;
@@ -11,9 +13,11 @@ body.pages.home {
 
 .wrapper-quote{
   margin-top: 30px;
-  border: 1px solid black;
-  height: 65vh;
+  // border: 1px solid black;
+  height: 80vh;
   padding-top: 15vh;
+  background-image: url(background5.gif);
+  background-size:cover;
 }
 
 .quotes{
@@ -60,7 +64,10 @@ body.pages.home {
   margin-left: 90px;
 }
 
-.buttonsss{
-  color: black;
+button{
   background-color: white;
+}
+
+.button-value{
+  color:black;
 }

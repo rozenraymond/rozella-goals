@@ -5,11 +5,32 @@
 
 <% else %>
 
-  <% @goals.each do |g| %>
-    <ul>
-      <li> <%= link_to(g.name, "/goals/#{g.id}") %> </li>
-    </ul>
-  <% end %>
+<% @goals.each do |g| %>
+<div class="card">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="work.jpg">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4"><%= g.name %><i class="material-icons right">more_vert</i></span>
+      <p><%= link_to("Edit Goal", "/goals/#{g.id}") %></p>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4"><%= g.name %><i class="material-icons right">close</i></span>
+      <%g.steps.each do |s| %>
+      <ul>
+        <li><%= s.name %></li>
+      </ul>
+
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
+  <%# @goals.each do |g| %>
+    <!-- <ul>
+      <li> <%#= link_to(g.name, "/goals/#{g.id}") %> </li>
+    </ul> -->
+  <%# end %>
 
   <%= month_calendar(events: @goals, attribute: :deadline) do |date, goals| %>
     <%= date.day %>
