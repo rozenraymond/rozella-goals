@@ -6,9 +6,8 @@
 </ul>
 <% end %>
 
-
-<%#= form_for @user, :html => {multipart=>true} do |f| %>
-<%= form_for @user do |f| %>
+<%= form_for(@user, :html => {:multipart => true}) do |f| %>
+<%#= form_for @user do |f| %>
   <p>
     <%= f.label :name %>
     <%= f.text_field :name, :required => true %>
@@ -17,6 +16,11 @@
   <p>
     <%= f.label :email %>
     <%= f.text_field :email, :required => true %>
+  </p>
+
+  <p>
+    <%= f.label "Profile Picture" %>
+    <%= f.cl_image_upload :profile_picture, :required => true %>
   </p>
 
   <p>

@@ -1,23 +1,45 @@
-<% if @current_user %>
-  <h3>
-    You are logged in as <%= @current_user.email %>
-  </h3>
+<div class="all_user">
+<% if @current_user.present? %>
 
-  <h3>Other Users</h3>
+  <div class="col s12 m7">
+      <h5 class="header"><%= @current_user.name %> (You)</h5>
+      <div class="card horizontal">
+        <div class="card-image">
+            <%= cl_image_tag(@current_user.profile_picture, :class => "circle profile_picture") %>
+        </div>
+        <div class="card-stacked">
+          <div class="card-content">
+            <p><%= @current_user.email %></p>
+            
+          </div>
+          <div class="card-action">
+            <%= link_to("Your profile", user_path(@current_user)) %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+  <h5 class="other users">Other Users:</h5>
+
   <% @users.each do |u| %>
     <% if u.name != @current_user.name %>
-    <p>
-      <%= link_to(u.name, user_path(u)) %>
-    </p>
+    <%#= cl_image_tag(u.profile_picture) %>
+      <p>
+        <%= link_to(u.name, user_path(u)) %>
+      </p>
     <% end %>
   <% end %>
 
 <% else %>
-<h3>All Users</h3>
-<% @users.each do |u| %>
-  <p>
-    <%= link_to(u.name, user_path(u)) %>
-  </p>
-<% end %>
+
+  <h3>All Users</h3>
+  <% @users.each do |u| %>
+    <p>
+      <%= link_to(u.name, user_path(u)) %>
+    </p>
+  <% end %>
 
 <% end %>
+</div>
