@@ -8,9 +8,9 @@
 
 User.destroy_all
 
-u1 = User.create :name => "Sam", :email => "sam@ga.co"
-u2 = User.create :name => "Fancy", :email => "fancy@ga.co"
-u3 = User.create :name => "Drew", :email => "drew@ga.co"
+u1 = User.create( { :name => "Sam", :email => "sam@ga.co", :password => "chicken", :password_confirmation => "chicken" } )
+u2 = User.create( { :name => "Fancy", :email => "fancy@ga.co", :password => "chicken", :password_confirmation => "chicken" } )
+u3 = User.create( { :name => "Drew", :email => "drew@ga.co", :password => "chicken", :password_confirmation => "chicken" } )
 
 puts "User count : #{User.all.count}"
 
@@ -38,3 +38,12 @@ s7 = Step.create :name => "Find Inspiration"
 g1.steps << s1 << s2 << s3
 g2.steps << s5 << s6
 g3.steps << s7
+
+
+# Following relationships
+users = User.all
+user = users.first
+following = users[1...2]
+followers = users[1...2]
+following.each{ |followed| user.follow(followed) }
+followers.each{ |follower| follower.follow(user) }

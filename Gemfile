@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'will_paginate'
 gem 'cloudinary'
 gem "simple_calendar", "~> 2.0"
 gem 'materialize-sass'

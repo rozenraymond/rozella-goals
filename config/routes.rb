@@ -12,7 +12,17 @@ Rails.application.routes.draw do
   get '/dashboards' => 'dashboards#index'
 
   get "/users/edit" => 'users#edit', :as => 'edit_user'
-  resources :users, :except => [:edit]
+
+  get "/search" => 'dashboards#search'
+
+  resources :users, :except => [:edit] do
+    member do
+      get :following, :followers
+    end
+  end
+
+  get "/users/:id/follow" => "users#follow", :as => 'follow_user'
+  resources :relationships, only: [:create, :destroy]
 
   resources :goals do
     resources :steps

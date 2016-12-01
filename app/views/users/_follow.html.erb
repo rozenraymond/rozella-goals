@@ -1,0 +1,6 @@
+<%= form_for(@current_user.active_relationships.build ) do |f| %>
+  <%= f.hidden_field "followed_id", :value => params[:id] %>
+  <%= f.submit "Follow", class: "btn btn-primary" %>
+<% end %>
+
+<!-- <input id="follower_id" name="followed_id" type="hidden" value="3" /> -->

@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :authorise, :only => [:edit, :update]
+  before_action :authorise, :only => [:edit, :update, :following, :followers]
 
   def index
     @current_user = User.find_by :id => session[:user_id]
@@ -61,6 +61,21 @@ class UsersController < ApplicationController
     redirect_to root_path()
   end
 
+
+  def following
+    @title = "Following"
+    @user = User.find(params[:id])
+    @users = @user.following
+    render 'show_follow'
+  end
+
+  def followers
+    @title = "Followers"
+    @user = User.find(params[:id])
+    @users = @user.followers
+    # @users = @user.followers.paginate(page: params[:page] || 1)
+    render 'show_follow'
+  end
 
   private
 
